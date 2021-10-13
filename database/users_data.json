@@ -73,49 +73,5 @@
                 "date": "2020-10-08"
             }
         }
-    },
-    "00000002": {
-        "personal_info": [
-            "adam",
-            "adam12@gmail.com",
-            "batata2020"
-        ],
-        "notes_info": {
-            "0": {
-                "title": "note!",
-                "text": "hi there",
-                "color": [
-                    1,
-                    1,
-                    0,
-                    1
-                ],
-                "date": "2020-11-12"
-            }
-        }
-    },
-    "00000003": {
-        "personal_info": [
-            "hodja",
-            "hodja21@gmail.com",
-            "cool2-2-"
-        ],
-        "notes_info": {}
-    },
-    "00000004": {
-        "personal_info": [
-            "Tim",
-            "offbusiness@gmail.com",
-            "ahmed1234"
-        ],
-        "notes_info": {}
-    },
-    "00000005": {
-        "personal_info": [
-            "Ahmed",
-            "ahmed100@gmail.com",
-            "abc123"
-        ],
-        "notes_info": {}
     }
 }
