@@ -1,0 +1,53 @@
+<MotivQuote>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: utils.get_color_from_hex('#92D575')
+        Rectangle:
+            size: root.width*(7/8), root.height/8
+            pos: (root.width-(root.width*(7/8)))/2, root.height - (root.height/8+30)
+    MDIconButton:
+        size_hint: [.12,.08]
+        pos_hint: {'x':.02, 'top':1}
+        icon: 'arrow-left'
+        on_release:
+            app.screen_changer("to-home")
+    MDLabel:
+        text: "[u][color=#FF0000]Motivational[/color][/u] Note"
+        theme_text_color: "Custom"
+        text_color: [0,0,0,1]
+        bold: True
+        size_hint: [1, .16]
+        font_size: "35sp"
+        halign: "center"
+        markup: True
+        pos_hint: {'center_x':.5, 'top':.97}
+    Image:
+        source: "imgs/calendar.png"
+        allow_stretch: True
+        keep_rotio: False
+    MDLabel:
+        id: quote
+        theme_text_color: "Custom"
+        halign: 'center'
+        text_color: [0,0,0,1]
+        text: ""
+        size_hint: [.75, .4]
+        font_size: "25sp"
+        markup: True
+        pos_hint: {"center_x":.5, "top":.7}
+    MDLabel:
+        id: owner
+        text: ""
+        size_hint: [1,.1]
+        halign: "center"
+        pos_hint: {"center_x":.5, "top":.2}
+        bold: True
+        color: [0,0,0,1]
+        font_size: "24sp"
+        markup: True
+

@@ -1,0 +1,42 @@
+#: import utils kivy.utils
+
+
+<Gallery>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    MDToolbar:
+        size_hint: [1, .08]
+        pos_hint: {'top':1}
+        md_bg_color: utils.get_color_from_hex('#FF9900')
+        title: 'Notes gallery'.upper()
+        bold: True
+        spesific_text_color: [0,0,0,1]
+        left_action_items: [['arrow-left', lambda x: app.screen_changer("to-home")]]
+
+    ScrollView:
+        id: scrol
+        size_hint: 1, .92
+        do_scroll_y: True
+        pos_hint: {"top":.92}
+        StackLayout:
+            id: box1
+            padding: [10,18,10,10]
+            spacing: 10
+            size_hint_y: None
+            height: self.minimum_height
+            row_default_height: '100dp'
+            row_force_default: True
+
+    MDFloatingActionButton:
+        size_hint: [None, None]
+        size: [70, 70]
+        icon: 'plus'
+        md_bg_color: utils.get_color_from_hex('#FF9900')
+        pos_hint: {'top':.14, 'x':.78}
+        on_release:
+            app.screen_changer("to-noteadder")
+            app.enable_btn()

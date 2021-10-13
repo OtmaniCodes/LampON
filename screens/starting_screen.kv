@@ -1,0 +1,59 @@
+#: import utils kivy.utils
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+<Img@Image>:
+    allow_stretch: True
+    keep_rotio: False
+<Btn@Button>:
+    background_normal: ''
+    background_down: ''
+    font_size: '24sp'
+    bold: True
+    color: [0,0,0,1]
+
+<Starting>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Img:
+        size_hint: [1, .25]
+        pos_hint:{'center_x':.5, 'top':1}
+        source: 'imgs/title.png'
+    Img:
+        size_hint: [.57, .32]
+        pos_hint:{'center_x':.5, 'top':.75}
+        source: 'imgs/stickies.png'
+    Btn:
+        pos_hint: {'center_x':.5, 'top':.4}
+        size_hint: [.8, .08]
+        text: 'have an account?'.title()
+        background_color: utils.get_color_from_hex('#9B9B00')
+        on_press:
+            self.background_color= utils.get_color_from_hex("#E5C64A")
+            self.color= utils.get_color_from_hex('#E5C64A')
+        on_release:
+            self.background_color= utils.get_color_from_hex("#9B9B00")
+            self.color= [0,0,0,1]
+            app.screen_changer('to-signin')
+    Btn:
+        pos_hint: {'center_x':.5, 'top':.3}
+        size_hint: [.8, .08]
+        text: 'create a new account?'.title()
+        background_color: utils.get_color_from_hex('#606000')
+        on_press:
+            self.background_color= utils.get_color_from_hex("#E5C64A")
+            self.color= utils.get_color_from_hex('#E5C64A')
+        on_release:
+            self.background_color= utils.get_color_from_hex("#60600")
+            self.color= [0,0,0,1]
+            app.screen_changer('to-signup')
+    MDLabel:
+        size_hint: [1, .05]
+        pos_hint: {'top':.05}
+        halign: 'center'
+        text: '[b]Created By:[/b] Ahmed El Otmani'
+        font_size: '14sp'
+        markup: True

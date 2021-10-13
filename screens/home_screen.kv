@@ -1,0 +1,60 @@
+<Img@Image>:
+    allow_stretch: True
+    keep_rotio: False
+<LabelButton@ButtonBehavior+MDLabel>:
+    color: [0,0,0,1] if self.state != 'down' else utils.get_color_from_hex('#FF9900')
+    size_hint: [.55, .1]
+    underline: False
+    font_size: '25sp'
+    bold: True
+
+<Home>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Img:
+        size_hint: [1, .25]
+        pos_hint:{'center_x':.5, 'top':1}
+        source: 'imgs/title.png'
+    Img:
+        size_hint: [.9, .6]
+        pos_hint: {'x':-0.05, 'bottom':1}
+        source: 'imgs/menu.png'
+    LabelButton:
+        text: 'Add a New Note'
+        pos_hint: {'x':.2, 'top':.545}
+        on_release:
+            app.screen_changer("to-noteadder")
+            app.enable_btn()
+    LabelButton:
+        text: 'Notes Gallery'
+        pos_hint: {'x':.2, 'top':.42}
+        on_release:
+            app.screen_changer("to-gallery")
+    LabelButton:
+        text: 'Motivational Note'
+        size_hint_x: .6
+        pos_hint: {'x':.2, 'top':.29}
+        on_release:
+            app.screen_changer("to-motive")
+    LabelButton:
+        text: 'About This App?'
+        pos_hint: {'x':.2, 'top':.16}
+        on_release:
+            app.screen_changer("to-about")
+    MDIconButton:
+        size_hint: [.15,.09]
+        pos_hint: {'x':.03, 'top':.155}
+        icon: 'exit-to-app'
+        on_release:
+            app.kill_app()
+    Label:
+        text: 'Exit'
+        size_hint: [None, None]
+        size: self.texture_size
+        font_size: '15sp'
+        pos_hint: {'x':.065, 'top':.099}
+        color:[0,0,0,1]

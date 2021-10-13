@@ -1,0 +1,42 @@
+#: kivy 1.11.1
+#: include 'screens\loading_screen.kv'
+#: include 'screens\starting_screen.kv'
+#: include 'screens\signin_screen.kv'
+#: include 'screens\signup_screen.kv'
+#: include 'screens\home_screen.kv'
+#: include 'screens\notesgenerator_screen.kv'
+#: include 'screens\notes_gallery_screen.kv'
+#: include 'screens\motivational_quote_screen.kv'
+#: include 'screens\about_us_screen.kv'
+
+
+FloatLayout:
+    ScreenManager:
+        id: screen_manager
+        Loading:
+            name: 'loading_sc'
+            id: loading_sc
+        Starting:
+            name: 'starting_sc'
+            id: Starting_sc
+        SignIn:
+            name: 'signin_sc'
+            id: signin_sc
+        SignUp:
+            name: 'signup_sc'
+            id: signup_sc
+        Home:
+            name: 'home_sc'
+            id: home_sc
+        NoteAdder:
+            name: 'noteadder_sc'
+            id: noteadder_sc
+        Gallery:
+            name: 'gallery_sc'
+            id: gallery_sc
+        MotivQuote:
+            name: 'motive_sc'
+            id: motive_sc
+        About:
+            name: 'about_sc'
+            id: about_sc

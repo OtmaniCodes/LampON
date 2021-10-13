@@ -1,0 +1,120 @@
+#: import utils kivy.utils
+<Btn@Button>:
+    background_normal: ''
+    background_down: ''
+    size_hint_y: 1
+
+<NoteAdder>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        size_hint: [1,1]
+        pos_hint: {'top':1, "center_x":.5}
+        source: 'imgs/adder.png'
+        allow_stretch: True
+        keep_rotio: False
+    MDIconButton:
+        size_hint: [.12,.08]
+        pos_hint: {'x':.02, 'top':1}
+        icon: 'arrow-left'
+        on_release:
+            app.screen_changer("to-home") if a.disabled != True and b.disabled != True and c.disabled != True and add_btn.disabled != True else app.screen_changer("to-gallery")
+            title.text=''
+            note_adder.text=''
+            app.picked_clr=''
+            warning3.text=""
+    MDTextFieldRect:
+        id: title
+        size_hint: [None, None]
+        size: [290, 40]
+        pos_hint: {'top':.85, "center_x":.49}
+        hint_text: "Title".upper()
+        background_color: utils.get_color_from_hex('#F0DD77')
+        font_size: '24sp'
+        bold: True
+        multiline: False
+        on_text_validate:
+            note_adder.focus= True
+        on_text:
+            self.text= self.text if len(self.text) <= 20 else self.text[:-1]
+    TextInput:
+        id: note_adder
+        size_hint: [None, None]
+        size: [290, 135]
+        pos_hint: {'top':.78, "center_x":.49}
+        background_color: utils.get_color_from_hex('#F0DD77')
+        font_size: '15sp'
+
+    Label:
+        text: "pick a color :"
+        color: [0,0,0,1]
+        size_hint: None, None
+        size: self.texture_size
+        font_size: '24sp'
+        pos_hint: {"x":.11, 'y':.5}
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: [.32, .05]
+        pos_hint: {'top':.55, "x":.569}
+        spacing: 10
+        Btn:
+            id: a
+            text:''
+            background_color: utils.get_color_from_hex('#00FFFF')
+            on_press:
+                self.background_color=utils.get_color_from_hex('#0E6464')
+                b.background_color=utils.get_color_from_hex('#FFFF00')
+                c.background_color= utils.get_color_from_hex('#00FF00')
+            on_release:
+                app.picked_clr= [0,1,1,1]
+        Btn:
+            id: b
+            text:''
+            background_color: utils.get_color_from_hex('#FFFF00')
+            on_press:
+                self.background_color=utils.get_color_from_hex('##71711B')
+                a.background_color=utils.get_color_from_hex('#00FFFF')
+                c.background_color= utils.get_color_from_hex('#00FF00')
+            on_release:
+                app.picked_clr= [1,1,0,1]
+        Btn:
+            id: c
+            text:''
+            background_color: utils.get_color_from_hex('#00FF00')
+            on_press:
+                self.background_color=utils.get_color_from_hex('##186418')
+                b.background_color=utils.get_color_from_hex('#FFFF00')
+                a.background_color= utils.get_color_from_hex('#00FFFF')
+            on_release:
+                app.picked_clr= [0,1,0,1]
+    Button:
+        id: add_btn
+        size_hint: [.95, .1]
+        pos_hint: {'center_x':.5, 'top':.150}
+        text: 'Add note'.upper()
+        bold: True
+        color: [0,0,0,1]
+        font_size: '24sp'
+        background_normal: ''
+        background_down: ''
+        background_color: utils.get_color_from_hex('#FF9900')
+        on_press:
+            self.background_color=utils.get_color_from_hex('#F1CD38')
+            self.color=utils.get_color_from_hex('#F1CD38')
+        on_release:
+            self.background_color= utils.get_color_from_hex('#FF9900')
+            self.color=[0,0,0,1]
+            app.notes_adder(title_txt=title.text, color=app.picked_clr, note_txt=note_adder.text, date=None, who='ur') if app.picked_clr != "" and title.text != "" and note_adder.text != '' else app.warn_em2()
+    MDLabel:
+        id: warning3
+        text: ''
+        size_hint: [.8, .05]
+        halign: 'center'
+        pos_hint: {'center_x':.5, "top":.05}
+        theme_text_color: "Custom"
+        text_color: utils.get_color_from_hex('#FF0000')
+        font_size: "15sp"

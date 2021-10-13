@@ -1,0 +1,121 @@
+{
+    "00000001": {
+        "personal_info": [
+            "mike",
+            "coder@gmail.com",
+            "pass2020"
+        ],
+        "notes_info": {
+            "0": {
+                "title": "meaning",
+                "text": "l\n",
+                "color": [
+                    0,
+                    1,
+                    1,
+                    1
+                ],
+                "date": "2020-10-08"
+            },
+            "1": {
+                "title": "first day",
+                "text": "nxnx",
+                "color": [
+                    1,
+                    1,
+                    0,
+                    1
+                ],
+                "date": "2020-10-08"
+            },
+            "2": {
+                "title": "life wonders",
+                "text": "s",
+                "color": [
+                    0,
+                    1,
+                    0,
+                    1
+                ],
+                "date": "2020-10-08"
+            },
+            "3": {
+                "title": "something",
+                "text": "dddd",
+                "color": [
+                    0,
+                    1,
+                    1,
+                    1
+                ],
+                "date": "2020-10-08"
+            },
+            "4": {
+                "title": "chores",
+                "text": "l",
+                "color": [
+                    1,
+                    1,
+                    0,
+                    1
+                ],
+                "date": "2020-10-08"
+            },
+            "5": {
+                "title": "okay",
+                "text": "z",
+                "color": [
+                    0,
+                    1,
+                    0,
+                    1
+                ],
+                "date": "2020-10-08"
+            }
+        }
+    },
+    "00000002": {
+        "personal_info": [
+            "adam",
+            "adam12@gmail.com",
+            "batata2020"
+        ],
+        "notes_info": {
+            "0": {
+                "title": "note!",
+                "text": "hi there",
+                "color": [
+                    1,
+                    1,
+                    0,
+                    1
+                ],
+                "date": "2020-11-12"
+            }
+        }
+    },
+    "00000003": {
+        "personal_info": [
+            "hodja",
+            "hodja21@gmail.com",
+            "cool2-2-"
+        ],
+        "notes_info": {}
+    },
+    "00000004": {
+        "personal_info": [
+            "Tim",
+            "offbusiness@gmail.com",
+            "ahmed1234"
+        ],
+        "notes_info": {}
+    },
+    "00000005": {
+        "personal_info": [
+            "Ahmed",
+            "ahmed100@gmail.com",
+            "abc123"
+        ],
+        "notes_info": {}
+    }
+}

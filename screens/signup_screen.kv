@@ -1,0 +1,94 @@
+#: import utils kivy.utils
+
+<Txt@MDTextFieldRect>:
+    size_hint: [.95, .08]
+    background_color: utils.get_color_from_hex('#FFEFAD') if self.text == '' else utils.get_color_from_hex('#FFC876')
+    font_size: '25sp'
+    bold: True
+    multiline: False
+<LabelButton@ButtonBehavior+MDLabel>:
+    color: [0,0,0,1]
+    size_hint: [1, .05]
+    halign: 'center'
+
+<SignUp>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#CEBB4E')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Img:
+        size_hint: [1, .25]
+        pos_hint:{'center_x':.5, 'top':1}
+        source: 'imgs/title.png'
+    Txt:
+        id: username
+        hint_text: 'Username:'
+        pos_hint: {'center_x':.5, 'top':.7}
+        focus: True
+        on_text_validate:
+            email.focus= True
+    Txt:
+        id: email
+        hint_text: 'Email:'
+        pos_hint: {'center_x':.5, 'top':.58}
+        on_text_validate:
+            password.focus= True
+    Txt:
+        id: password
+        hint_text: 'Password:'
+        pos_hint: {'center_x':.5, 'top':.46}
+        password: True
+        on_text:
+            self.text= self.text if len(self.text) <= 12 else self.text[:-1]
+    MDIconButton:
+        size_hint: [.15,.09]
+        pos_hint: {'x':.86, 'top':.47}
+        icon: 'eye-off'
+        on_release:
+            password.password=False if password.password==True else True
+            self.icon= 'eye' if password.password==False else 'eye-off'
+    Button:
+        id: submit
+        text: 'submit'.upper()
+        bold: True
+        font_size: "25sp"
+        size_hint: [.95, .10]
+        pos_hint: {'center_x':.5, 'top':.30}
+        background_normal: ''
+        background_down: ''
+        background_color: utils.get_color_from_hex('#FF9900')
+        color: [0,0,0,1]
+        on_press:
+            self.background_color=utils.get_color_from_hex('#F1CD38')
+            self.color=utils.get_color_from_hex('#F1CD38')
+        on_release:
+            self.background_color=utils.get_color_from_hex('#FF9900')
+            self.color=[0,0,0,1]
+            app.check_info_up(username.text, email.text, password.text) if username.text !='' and email.text !='' and password.text !='' else app.warn_em(warning)
+    LabelButton:
+        pos_hint: {'top':.23, 'center_x':.5}
+        text: 'already have an account?'
+        font_size: '15sp'
+        underline: True
+        on_press:
+            self.color=utils.get_color_from_hex('#FF9900')
+        on_release:
+            self.color=utils.get_color_from_hex('#000000')
+            app.screen_changer('to-signin')
+            username.text=''
+            email.text=''
+            password.text=''
+            warning.text=''
+    MDLabel:
+        id: warning
+        text: ''
+        size_hint_x: 1
+        size_hint_y: None
+        height: 10
+        font_size: '14sp'
+        pos_hint: {'center_x': .5, 'top':.06}
+        halign: 'center'
+        color: [1,0,0,1]
+        bold: True

@@ -1,0 +1,15 @@
+[b]_________________________________________[/b]
+
+LampON is a note taking app that helps users keep
+his or her notes saved and memorized
+in an internal safe database that exists in the
+the storage of the device.
+with LampON the user can create as many notes
+as he wants, colorize his notes
+to make them more noticeable and much much more...
+[b]_________________________________________[/b]
+
+[u]App's Name[/u]: [b]TASK TRACKER[/b]
+[u]Version[/u]: [b]1.0.0[/b]
+[u]Developer[/u]: [b]Ahmed El Otmani[/b]
+[u]Twitter[/u]: [b]ahmed0tdc[/b]
